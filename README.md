@@ -1,20 +1,20 @@
 <div align="center">
 
-<h1>EnvProbe</h1>
+<h1>Ask the World Before Acting</h1>
 
-<p><b>When should long-horizon LLM agents actively query the environment?</b></p>
+<p><b>Budgeted Environment Probing for World-Model Calibration</b></p>
 
 <p>
-  <a href="#quick-start"><img alt="Quick Start" src="https://img.shields.io/badge/Quick_Start-5_min_sanity_check-2f80ed?style=for-the-badge"></a>
-  <a href="#method"><img alt="Method" src="https://img.shields.io/badge/Method-budgeted_probing-00a88f?style=for-the-badge"></a>
-  <a href="#benchmark"><img alt="Benchmark" src="https://img.shields.io/badge/Benchmark-3_worlds-f59f00?style=for-the-badge"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-344054?style=for-the-badge"></a>
+  Xinyuan Song &nbsp;&middot;&nbsp; Zekun Cai
 </p>
 
 <p>
-  <a href="#citation"><img alt="Paper" src="https://img.shields.io/badge/Paper-coming_soon-b31b1b?style=flat-square"></a>
-  <a href="#reproducing-results"><img alt="Reproduce" src="https://img.shields.io/badge/Reproduce-cells_registry.csv-6941c6?style=flat-square"></a>
-  <a href="requirements.txt"><img alt="Python" src="https://img.shields.io/badge/Python-3.9+-3776ab?style=flat-square&logo=python&logoColor=white"></a>
+  <a href="https://arxiv.org/abs/2606.31422"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2606.31422-b31b1b.svg"></a>
+  <a href="https://arxiv.org/pdf/2606.31422"><img alt="PDF" src="https://img.shields.io/badge/PDF-arXiv-b31b1b.svg"></a>
+  <a href="https://doi.org/10.48550/arXiv.2606.31422"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.48550%2FarXiv.2606.31422-blue.svg"></a>
+  <a href="https://github.com/Hik289/Environment-reduce-error"><img alt="Code" src="https://img.shields.io/badge/Code-GitHub-black.svg"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+  <a href="requirements.txt"><img alt="Python" src="https://img.shields.io/badge/Python-3.9%2B-blue.svg"></a>
 </p>
 
 </div>
@@ -23,7 +23,7 @@
   <img src="assets/envprobe_intuition.png" width="96%" alt="EnvProbe intuition: closed-loop environment probing reduces long-horizon belief hallucination under a shared action budget.">
 </p>
 
-EnvProbe is the official research code for studying **environment probing as a control problem** in long-horizon LLM agents. The central question is simple: when an agent's internal belief may be stale, uncertain, or hallucinated, should it spend the next step acting, or should it first ask the environment for evidence?
+This repository contains the official code for **Ask the World Before Acting: Budgeted Environment Probing for World-Model Calibration**. The project studies environment probing as a control problem in long-horizon LLM agents: when an agent's internal world model may be stale, uncertain, or hallucinated, should it spend the next step acting, or should it first ask the environment for evidence?
 
 The benchmark treats probe actions as costly. A probe improves belief calibration, but it consumes the same finite horizon as task actions. This makes hallucination reduction a budgeted decision rather than a free retrieval call.
 
@@ -37,7 +37,7 @@ The benchmark treats probe actions as costly. A probe improves belief calibratio
 
 ## Method
 
-EnvProbe selects which belief to verify by scoring each candidate belief:
+EnvProbe selects which belief field to verify by scoring each candidate belief:
 
 ```text
 score(b) = criticality(b)
@@ -176,11 +176,14 @@ To add a new metric, extend `src.metrics.scorer.score_step` or `src.metrics.scor
 ## Citation
 
 ```bibtex
-@misc{envprobe2026,
-  title  = {EnvProbe: When LLM Agents Should Actively Probe the Environment},
-  author = {Anonymous Authors},
-  year   = {2026},
-  note   = {Manuscript in preparation}
+@misc{song2026askworldactingbudgeted,
+  title={Ask the World Before Acting: Budgeted Environment Probing for World-Model Calibration},
+  author={Xinyuan Song and Zekun Cai},
+  year={2026},
+  eprint={2606.31422},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2606.31422}
 }
 ```
 

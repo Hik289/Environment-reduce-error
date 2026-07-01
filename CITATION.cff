@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Ask the World Before Acting: Budgeted Environment Probing for World-Model Calibration"
+authors:
+  - family-names: Song
+    given-names: Xinyuan
+  - family-names: Cai
+    given-names: Zekun
+date-released: "2026-06-30"
+url: "https://arxiv.org/abs/2606.31422"
+repository-code: "https://github.com/Hik289/Environment-reduce-error"
+license: MIT
+identifiers:
+  - type: doi
+    value: "10.48550/arXiv.2606.31422"
