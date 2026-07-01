@@ -1,0 +1,34 @@
+openai_api_key: "${OPENAI_API_KEY}"
+anthropic_api_key: "${ANTHROPIC_API_KEY}"
+default_model: gpt-4o-mini
+models:
+  openai: gpt-4o-mini
+  anthropic: claude-haiku-4-5
+pilot:
+  environments: [ObjectStateWorld, GraphNavWorld]
+  methods: [no_probe, periodic_probe, self_uncertainty_probe, envprobe_simple, oracle_probe]
+  episodes_per_cell: 5
+  seed: 42
+  stress:
+    pilot_low:
+      horizon: 20
+      state_cardinality: low
+      dependency_density: low
+      observation_noise: clean
+      state_mutation_rate: static
+    pilot_high:
+      horizon: 40
+      state_cardinality: high
+      dependency_density: high
+      observation_noise: distractor
+      state_mutation_rate: volatile
+logging:
+  output_dir: experiments/logs
+  figures_dir: figures
+  tables_dir: analysis
+  errors_file: experiments/errors.jsonl
+api:
+  max_retries: 5
+  backoff_base: 1.5
+  json_retries: 3
+  request_timeout: 60
